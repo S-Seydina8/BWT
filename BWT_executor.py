@@ -3,7 +3,8 @@ def marcaturaDellaStringa(x):
     print("la stringa selezionata e': ", x)
     
 def ordinamentoLettere(x):
-    lettere = list(x)
+    strigaTotale = ("$" + x)
+    lettere = list(strigaTotale)
     n = len(lettere)
     
     for i in range(n):
