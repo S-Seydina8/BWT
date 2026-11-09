@@ -2,24 +2,31 @@
 def marcaturaDellaStringa(x):
     print("la stringa selezionata e': ", x)
     
-def ordinamentoLettere(x):
-    strigaTotale = ("$" + x)
-    lettere = list(strigaTotale)
-    n = len(lettere)
+def ordinamentoParole(x):
+
+    stringa_finale = x + "$"
+    n = len(stringa_finale)
     
-    for i in range(n):
+
+    rotazioni = {stringa_finale[i:] + stringa_finale[:i] for i in range(n)}
+    
+    
+    for i in range(n - 1):
         min_idx = i
         for j in range(i + 1, n):
-            if lettere[j].lower() < lettere[min_idx].lower():
-                min_idx = j
-
-        # ordinare parole in totale
-        lettere[i], lettere[min_idx] = lettere[min_idx], lettere[i]
     
-    # fusione delle parole    
-    return "".join(lettere)
+            if rotazioni[j] < rotazioni[min_idx]:
+                min_idx = j
+        
+    
+        rotazioni[i], rotazioni[min_idx] = rotazioni[min_idx], rotazioni[i]
+    
+    
+    bwt_risultato = "".join([r[-1] for r in rotazioni])
+    
+    return bwt_risultato
 
 
 inserimento_parola = input("inserisci la parola in qui vorresti avviare la BWT: ")
 marcaturaDellaStringa(inserimento_parola)
-print(ordinamentoLettere(inserimento_parola))
+print(ordinamentoParole(inserimento_parola))
