@@ -1,23 +1,37 @@
+import sys
+import os
 import socket as sck
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import BWT_executor
+
 IP = '127.0.0.1'
 PORTA = 5000
 
-Seydina = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
+with sck.socket(sck.AF_INET, sck.SOCK_STREAM) as server:
 
-with sck.socket(sck.AF_INET, sck.SOCK_STREAM) as Seydina:
+    server.bind((IP, PORTA))
+    server.listen(5)
 
-    Seydina.bind((IP, PORTA))
+    print(f"Server BWT in ascolto su {IP}:{PORTA}...")
 
-    Seydina.listen(5) # numero massimo delle richieste nella stessa rete
-    conn, add=Seydina.accept()
+    conn, add = server.accept()
 
-    print("socket di ascolto: ", Seydina.getsockname())
-    print("socket di ascolto: ", conn.getsockname())
+    with conn:
 
-    dati=conn.recv(1024) # un numero di massimo di byte che andiamo leggere per chiamata
+        print("Connesso con:", add)
 
-    print("Dati ricevuto dal client ", dati.decode())
+        dati = conn.recv(1024)
 
-    conn.sendall(dati)
-    conn.close()
-    Seydina.close()
+        messaggio = dati.decode('utf-8')
+
+        print("Nome ricevuto dal client:", messaggio)
+
+        # Esecuzione della logica BWT
+        risposta = BWT_executor.esegui_bwt(messaggio)
+
+        print("Risultato BWT:", risposta)
+
+        # Invio del risultato al client
+        conn.sendall(risposta.encode('utf-8'))
