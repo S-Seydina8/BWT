@@ -1,7 +1,3 @@
-def marcaturaDellaStringa(x):
-    print("La stringa selezionata è:", x)
-
-
 # ordinamento delle parole a logica del BWT tramite select sort
 def ordinamentoParole(x):
 
@@ -20,8 +16,6 @@ def ordinamentoParole(x):
 
 # esecuzione della logica BWT dalle altre funzioni
 def esegui_bwt(testo):
-
-    marcaturaDellaStringa(testo)
 
     risultato = ordinamentoParole(testo)
 
