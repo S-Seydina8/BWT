@@ -6,7 +6,7 @@ File utilizzati:
     - BWT_executor.py  # Esecutore base della BWT | richiesta della Input
     - Server&Client:
         - Client.py   # richiede il servizio (compressione della BWT)
-        - Server.py   # risponde alla richiesta del servizione
+        - Server.py   # risponde alla richiesta del servizio - connesso al file BWT_Executor
 
 Github Profile: S-Seydina8
 Link Repo: https://github.com/S-Seydina8/BWT
