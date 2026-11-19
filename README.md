@@ -1,12 +1,12 @@
 Nome: Seydina Mouhamed  
 Cognome: Sissao  
-Classe 5BT-i  
+Classe: 5BT-i  
 
 Progetto: Sviluppo di un sistema Client-Server in Python per il calcolo della trasformazione della Burrows-Wheeler  
 
 File utilizzati:
 - BWT_executor.py # Esecutore base della BWT | richiesta della Input
-- Server&Client:
+- Server_Client:
   - Client.py # richiede il servizio (compressione della BWT)
   - Server.py # risponde alla richiesta del servizio - connesso al file BWT_Executor
 
