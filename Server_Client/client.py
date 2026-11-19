@@ -10,6 +10,7 @@ with sck.socket(sck.AF_INET, sck.SOCK_STREAM) as client:
 
     messaggio = input("Inserisci il nome da trasformare: ")
 
+    # invio del messaggio al server in codifica UTF-8
     client.sendall(messaggio.encode('utf-8'))
 
     risposta = client.recv(1024).decode('utf-8')
