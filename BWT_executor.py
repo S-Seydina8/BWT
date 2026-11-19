@@ -1,6 +1,7 @@
 # ordinamento delle parole a logica del BWT tramite select sort
 def ordinamentoParole(x):
 
+    # controllo se la stringa termina con il simbolo "$", se non lo fa, lo aggiunge
     if not x.endswith("$"):
         x += "$"
 
