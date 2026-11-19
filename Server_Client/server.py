@@ -27,6 +27,7 @@ with sck.socket(sck.AF_INET, sck.SOCK_STREAM) as server:
 
         dati = conn.recv(1024)
 
+        # decodifica del messaggio ricevuto dal client in UTF-8
         messaggio = dati.decode('utf-8')
 
         print("Nome ricevuto dal client:", messaggio)
